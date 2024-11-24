@@ -1,0 +1,29 @@
+*
+*
+*
+1. Buid and Run
+source install/setup.bash
+ros2 run gnss_fault_injection gnss_fault_injection
+*
+*
+*
+2. Usage examples
+If you want to start noise injection to gnss pose, write commandline:
+ros2 topic pub /gnss_fault_injection/command std_msgs/msg/String "data: 'start'"
+
+If you want to stop noise injection to gnss pose, write commandline:
+ros2 topic pub /gnss_fault_injection/command std_msgs/msg/String "data: 'stop'"
+
+Ctrl+C do not matter. Start or Stop command only works by activating through two commandlines.
+*
+*
+*
+3. Test
+The gnss pose with or without noise according to commandline is published via '/sensing/gnss/pose_with_fault_injection' topic.
+
+Can check the topic with the command below:
+ros2 topic echo /sensing/gnss/pose_with_fault_injection
+*
+*
+*
+
